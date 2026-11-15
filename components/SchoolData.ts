@@ -64,7 +64,7 @@ export const STAT_COUNTERS: StatCounterItem[] = [
     target: 500,
     suffix: '+',
     label: 'Students',
-    context: 'Grades K through 12',
+    context: 'Nursery to Class 12',
   },
   {
     id: 'teachers',
@@ -122,13 +122,13 @@ export const PROGRAMS: ProgramItem[] = [
     id: 'primary',
     index: '01.',
     title: 'Primary',
-    grades: 'Grades 1–5',
+    grades: 'Class 1–5',
     ages: 'Ages 6–11',
     summary:
       'Foundational literacy, numeracy, and curiosity-driven inquiry built in small homerooms where every learner builds confidence.',
     highlights: [
       'Phonics, bilingual reading workshops, and structured writing studios',
-      'Hands-on Singapore-style mathematics and weekly nature science labs',
+      'Hands-on NCERT-aligned mathematics and weekly nature science labs',
       'Daily visual arts, choir, and foundational movement education',
     ],
     schedule: '8:15 AM – 2:30 PM · 18 students max per section',
@@ -137,7 +137,7 @@ export const PROGRAMS: ProgramItem[] = [
     id: 'middle',
     index: '02.',
     title: 'Middle',
-    grades: 'Grades 6–8',
+    grades: 'Class 6–8',
     ages: 'Ages 11–14',
     summary:
       'Interdisciplinary laboratories, structured debate, and coding studios designed to guide early adolescents toward independent scholarship.',
@@ -152,14 +152,14 @@ export const PROGRAMS: ProgramItem[] = [
     id: 'senior-secondary',
     index: '03.',
     title: 'Senior Secondary',
-    grades: 'Grades 9–12',
+    grades: 'Class 9–12',
     ages: 'Ages 14–18',
     summary:
-      'Rigorous university-preparatory tracks across Sciences, Commerce, and Humanities paired with dedicated college counseling.',
+      'Rigorous CBSE board-preparatory streams across Science (PCM / PCB), Commerce, and Humanities paired with dedicated career counseling.',
     highlights: [
-      'Honors STEM, Economics, Literature, and Applied Computer Science tracks',
-      'Individualized university portfolio and scholarship advising from Grade 10',
-      'Capstone research thesis defended before faculty and visiting fellows',
+      'CBSE Streams: Science (PCM / PCB), Commerce, and Humanities with Computer Science',
+      'Individualized competitive exam, portfolio, and scholarship advising from Class 10',
+      'Capstone research projects defended before faculty and visiting academic fellows',
     ],
     schedule: '8:00 AM – 3:45 PM · Open seminar & lab hours until 5:00 PM',
   },
@@ -167,7 +167,7 @@ export const PROGRAMS: ProgramItem[] = [
     id: 'sports-arts',
     index: '04.',
     title: 'Sports & Arts',
-    grades: 'All Grades',
+    grades: 'All Classes',
     ages: 'Co-Curricular',
     summary:
       'Varsity athletics, performing arts, and fine studio electives woven directly into campus life to nurture discipline and creativity.',
@@ -235,9 +235,9 @@ export const TESTIMONIALS: TestimonialItem[] = [
   {
     id: 't1',
     quote:
-      'Before joining Sunrise in Grade 6, my daughter hesitated to speak in class. Through weekly debate seminars and patient mentorship from her English advisor, she led our regional Model UN delegation this spring.',
+      'Before joining Sunrise in Class 6, my daughter hesitated to speak in class. Through weekly debate seminars and patient mentorship from her English advisor, she led our regional Model UN delegation this spring.',
     author: 'Meera Deshmukh',
-    role: 'Parent of Ananya Deshmukh (Grade 10)',
+    role: 'Parent of Ananya Deshmukh (Class 10)',
     context: 'Enrolled 4 years',
     outcome: 'Regional Debate Captain',
   },
@@ -246,26 +246,26 @@ export const TESTIMONIALS: TestimonialItem[] = [
     quote:
       'The robotics makerspace and senior physics labs gave me the space to build real prototypes rather than just memorize equations. That hands-on research portfolio helped me earn an early engineering scholarship.',
     author: 'Rohan Kulkarni',
-    role: 'Alumnus, Class of 2024',
-    context: 'Senior Secondary STEM Track',
-    outcome: 'B.S. Mechanical Engineering Scholar',
+    role: 'Alumnus, Batch of 2024',
+    context: 'Senior Secondary Science (PCM)',
+    outcome: 'B.Tech Mechanical Engineering Scholar',
   },
   {
     id: 't3',
     quote:
       'Moving cities mid-year felt daunting, yet Sunrise’s primary homeroom teachers had both of our boys settled within two weeks. Daily reading check-ins and afternoon athletics transformed their confidence.',
-    author: 'David & Claire Bennett',
-    role: 'Parents of Lucas (Grade 4) & Noah (Grade 7)',
+    author: 'Amit & Sunita Verma',
+    role: 'Parents of Aarav (Class 4) & Vivaan (Class 7)',
     context: 'Transfer Family',
     outcome: '98% Literacy & Math Benchmark',
   },
   {
     id: 't4',
     quote:
-      'What sets Sunrise Public School apart is balance—our son trains four afternoons a week with the varsity track coach without ever falling behind in honors calculus thanks to structured faculty office hours.',
+      'What sets Sunrise Public School apart is balance—our son trains four afternoons a week with the varsity track coach without ever falling behind in senior secondary sciences thanks to structured faculty office hours.',
     author: 'Priya Nair',
-    role: 'Parent of Arjun Nair (Grade 11)',
-    context: 'Varsity Track & Honors Sciences',
-    outcome: 'State 800m Finalist · 3.9 GPA',
+    role: 'Parent of Arjun Nair (Class 11)',
+    context: 'Varsity Track & CBSE Science',
+    outcome: 'State 800m Finalist · 96.4% in CBSE Class 12',
   },
 ];

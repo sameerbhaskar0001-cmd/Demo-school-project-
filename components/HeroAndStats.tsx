@@ -133,7 +133,7 @@ export default function HeroAndStats({
               <span aria-hidden="true" className="mx-2 text-white/40">
                 ·
               </span>
-              <span className="text-white/85">Grades K–12</span>
+              <span className="text-white/85">Nursery to Class 12</span>
             </p>
 
             <h1
@@ -147,8 +147,9 @@ export default function HeroAndStats({
             </h1>
 
             <p className="text-base sm:text-lg text-[#CBD5E1] leading-relaxed max-w-2xl mb-10">
-              A balanced K–12 academic community where rigorous inquiry, dedicated faculty mentorship,
-              and championship athletics prepare students to think clearly and lead with integrity.
+              A balanced Nursery to Class 12 CBSE academic community in Muzaffarpur where rigorous
+              inquiry, dedicated faculty mentorship, and championship athletics prepare students to
+              think clearly and lead with integrity.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -179,7 +180,7 @@ export default function HeroAndStats({
             className="mt-16 pt-8 border-t border-white/15 flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm text-slate-300"
           >
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span>Accredited K–12 Curriculum</span>
+              <span>CBSE Affiliated Curriculum (New Delhi)</span>
               <span aria-hidden="true" className="text-white/30">
                 /
               </span>
@@ -187,7 +188,7 @@ export default function HeroAndStats({
               <span aria-hidden="true" className="text-white/30">
                 /
               </span>
-              <span>Springfield Campus</span>
+              <span>Muzaffarpur Campus</span>
             </div>
 
             <button
@@ -211,6 +212,30 @@ export default function HeroAndStats({
           </motion.div>
         </div>
       </section>
+
+      {/* School Notice Board Strip */}
+      <div
+        role="region"
+        aria-label="School Notice Board"
+        className="bg-[#0B1F3A] dark:bg-[#0F2747] text-white border-y border-[#F5B700]/35 transition-colors duration-200"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+          <div className="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-[#CBD5E1]">
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded bg-[#F5B700] text-[#0B1F3A] text-[11px] font-bold uppercase tracking-wider shrink-0">
+              Notice Board
+            </span>
+            <p className="text-white/95 leading-snug">
+              📢 Admissions Open for Session 2027–28 (Nursery to Class XI) • CBSE Affiliation Code: 330XXX • Transport Facility Available Across Muzaffarpur
+            </p>
+          </div>
+          <a
+            href="#admissions"
+            className="text-xs font-semibold text-[#F5B700] hover:underline whitespace-nowrap shrink-0"
+          >
+            Apply Now →
+          </a>
+        </div>
+      </div>
 
       {/* 3. Animated Counters Strip */}
       <section

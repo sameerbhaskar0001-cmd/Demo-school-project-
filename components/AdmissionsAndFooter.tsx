@@ -44,6 +44,7 @@ export default function AdmissionsAndFooter({
     email: string;
     inquiryType: string;
     visitSlot: string;
+    whatsappUrl: string;
     trigger: number;
   } | null>(null);
 
@@ -83,11 +84,40 @@ export default function AdmissionsAndFooter({
       return;
     }
     setErrors({});
+
+    const trimmedName = name.trim();
+    const trimmedPhone = phone.trim();
+    const trimmedEmail = email.trim();
+    const trimmedMessage = message.trim();
+
+    const whatsappMessage = [
+      'Hello Sunrise Public School (Muzaffarpur),',
+      'New Admission / Campus Visit Inquiry:',
+      `Name: ${trimmedName}`,
+      `Phone: ${trimmedPhone}`,
+      `Email: ${trimmedEmail}`,
+      `Inquiry Type: ${inquiryType}`,
+      `Preferred Visit Slot: ${visitSlot}`,
+      `Message: ${trimmedMessage}`,
+    ].join('\n');
+
+    const whatsappUrl = `https://wa.me/916205568636?text=${encodeURIComponent(whatsappMessage)}`;
+
+    // Open WhatsApp lead in a new tab before rendering confirmation state
+    const anchor = document.createElement('a');
+    anchor.href = whatsappUrl;
+    anchor.target = '_blank';
+    anchor.rel = 'noopener noreferrer';
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+
     setSubmittedData({
-      name: name.trim(),
-      email: email.trim(),
+      name: trimmedName,
+      email: trimmedEmail,
       inquiryType,
       visitSlot,
+      whatsappUrl,
       trigger: focusTrigger,
     });
     setName('');
@@ -135,7 +165,7 @@ export default function AdmissionsAndFooter({
                 </div>
                 <div className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span>Merit &amp; need-based scholarships across Grades 6–12</span>
+                  <span>Merit &amp; need-based scholarships across Class 6–12</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
@@ -154,7 +184,7 @@ export default function AdmissionsAndFooter({
             >
               <div className="rounded-2xl bg-white dark:bg-[#0F2747] text-[#0B1F3A] dark:text-white p-6 sm:p-8 shadow-xl border border-[#0B1F3A]/10 dark:border-white/10">
                 {submittedData && submittedData.trigger === focusTrigger ? (
-                  <div className="py-8 text-center">
+                  <div id="form-success" className="py-8 text-center">
                     <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 flex items-center justify-center">
                       <CheckCircle2 className="w-6 h-6" />
                     </div>
@@ -174,16 +204,26 @@ export default function AdmissionsAndFooter({
                       ) and will reach out to{' '}
                       <span className="underline">{submittedData.email}</span> within 2 business days.
                     </p>
-                    <button
-                      type="button"
-                      onClick={() => setSubmittedData(null)}
-                      className="px-5 py-2.5 text-sm font-semibold text-[#0B1F3A] bg-[#F5B700] hover:bg-[#e2a900] rounded-lg transition-colors cursor-pointer"
-                    >
-                      Send Another Inquiry
-                    </button>
+                    <div className="flex flex-wrap items-center justify-center gap-3">
+                      <a
+                        href={submittedData.whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-5 py-2.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors"
+                      >
+                        Open WhatsApp Message
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => setSubmittedData(null)}
+                        className="px-5 py-2.5 text-sm font-semibold text-[#0B1F3A] bg-[#F5B700] hover:bg-[#e2a900] rounded-lg transition-colors cursor-pointer"
+                      >
+                        Send Another Inquiry
+                      </button>
+                    </div>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} noValidate className="space-y-4">
+                  <form id="admissions-form" onSubmit={handleSubmit} noValidate className="space-y-4">
                     <h3 className="text-xl font-bold text-[#0B1F3A] dark:text-white mb-1">
                       Admissions &amp; Visit Inquiry
                     </h3>
@@ -208,7 +248,7 @@ export default function AdmissionsAndFooter({
                             setName(e.target.value);
                             if (errors.name) setErrors((p) => ({...p, name: undefined}));
                           }}
-                          placeholder="Elena Vance"
+                          placeholder="Rajesh Kumar"
                           aria-invalid={Boolean(errors.name)}
                           className="w-full px-3.5 py-2.5 text-sm rounded-lg bg-[#F4F6FA] dark:bg-[#07142A] border border-[#0B1F3A]/15 dark:border-white/15 text-[#0B1F3A] dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F5B700]"
                         />
@@ -234,7 +274,7 @@ export default function AdmissionsAndFooter({
                             setPhone(e.target.value);
                             if (errors.phone) setErrors((p) => ({...p, phone: undefined}));
                           }}
-                          placeholder="(555) 234-8910"
+                          placeholder="+91 6205568636"
                           aria-invalid={Boolean(errors.phone)}
                           className="w-full px-3.5 py-2.5 text-sm rounded-lg bg-[#F4F6FA] dark:bg-[#07142A] border border-[#0B1F3A]/15 dark:border-white/15 text-[#0B1F3A] dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F5B700]"
                         />
@@ -288,9 +328,9 @@ export default function AdmissionsAndFooter({
                         >
                           <option value="Admissions Application">Admissions Application</option>
                           <option value="Book a Campus Visit">Book a Campus Visit</option>
-                          <option value="Primary">Primary Program (Grades 1–5)</option>
-                          <option value="Middle">Middle Program (Grades 6–8)</option>
-                          <option value="Senior Secondary">Senior Secondary (Grades 9–12)</option>
+                          <option value="Primary">Primary Program (Class 1–5)</option>
+                          <option value="Middle">Middle Program (Class 6–8)</option>
+                          <option value="Senior Secondary">Senior Secondary (Class 9–12 — Science, Commerce &amp; Humanities)</option>
                           <option value="Sports & Arts">Sports &amp; Arts</option>
                         </select>
                       </div>
@@ -326,7 +366,7 @@ export default function AdmissionsAndFooter({
                         htmlFor="admissions-message"
                         className="block text-xs font-semibold text-[#0B1F3A] dark:text-white mb-1.5"
                       >
-                        Message &amp; Grade Level
+                        Message &amp; Class Level
                       </label>
                       <textarea
                         id="admissions-message"
@@ -336,7 +376,7 @@ export default function AdmissionsAndFooter({
                           setMessage(e.target.value);
                           if (errors.message) setErrors((p) => ({...p, message: undefined}));
                         }}
-                        placeholder="Share prospective student grade level, preferred tour date, or questions..."
+                        placeholder="Share prospective student class level (Nursery to Class 12), preferred tour date, or questions..."
                         aria-invalid={Boolean(errors.message)}
                         className="w-full px-3.5 py-2.5 text-sm rounded-lg bg-[#F4F6FA] dark:bg-[#07142A] border border-[#0B1F3A]/15 dark:border-white/15 text-[#0B1F3A] dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F5B700] resize-none"
                       />
@@ -377,8 +417,9 @@ export default function AdmissionsAndFooter({
                 Sunrise Public School
               </a>
               <p className="text-sm text-[#CBD5E1] leading-relaxed max-w-sm mb-6">
-                An accredited K–12 co-educational institution dedicated to intellectual curiosity,
-                community service, and balanced student growth since 2001.
+                A CBSE-affiliated co-educational institution (Nursery to Class 12) in Muzaffarpur
+                dedicated to intellectual curiosity, community service, and balanced student growth
+                since 2001.
               </p>
 
               {/* Social Icons */}
@@ -450,25 +491,25 @@ export default function AdmissionsAndFooter({
                 <li className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-[#F5B700] shrink-0 mt-1" />
                   <span>
-                    420 Horizon Boulevard, Academic District, Springfield 62704
+                    Mithanpura Road, Muzaffarpur, Bihar 842001
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-[#F5B700] shrink-0" />
                   <a
-                    href="tel:+15552348910"
+                    href="tel:+916205568636"
                     className="hover:text-[#F5B700] transition-colors tabular-nums"
                   >
-                    +1 (555) 234-8910
+                    +91 6205568636
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-[#F5B700] shrink-0" />
                   <a
-                    href="mailto:admissions@sunrisepublic.edu"
+                    href="mailto:admissions@sunrisepublicschool.in"
                     className="hover:text-[#F5B700] transition-colors"
                   >
-                    admissions@sunrisepublic.edu
+                    admissions@sunrisepublicschool.in
                   </a>
                 </li>
               </ul>

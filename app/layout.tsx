@@ -17,29 +17,29 @@ const libreBaskerville = Libre_Baskerville({
 });
 
 export const metadata: Metadata = {
-  title: 'Sunrise Public School | Demo Website Project',
+  title: 'Sunrise Public School, Muzaffarpur | CBSE Demo Website Project',
   description:
-    'Explore Sunrise Public School — a modern responsive school demo website showcasing K-12 programs, campus gallery, testimonials, and admissions.',
+    'Explore Sunrise Public School in Muzaffarpur, Bihar — a premier CBSE-affiliated school demo website (Nursery to Class 12) with programs, gallery, and admissions.',
   openGraph: {
-    title: 'Sunrise Public School | Demo Website Project',
+    title: 'Sunrise Public School, Muzaffarpur | CBSE Demo Website Project',
     description:
-      'Explore Sunrise Public School — a modern responsive school demo website showcasing K-12 programs, campus gallery, testimonials, and admissions.',
-    siteName: 'Sunrise Public School (Demo)',
+      'Explore Sunrise Public School in Muzaffarpur, Bihar — a premier CBSE-affiliated school demo website (Nursery to Class 12) with programs, gallery, and admissions.',
+    siteName: 'Sunrise Public School, Muzaffarpur (Demo)',
     type: 'website',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1562774053-701939374585?fit=crop&w=1200&h=630&q=80&fm=jpg',
         width: 1200,
         height: 630,
-        alt: 'Sunrise Public School Campus Preview',
+        alt: 'Sunrise Public School Muzaffarpur Campus Preview',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sunrise Public School | Demo Website Project',
+    title: 'Sunrise Public School, Muzaffarpur | CBSE Demo Website Project',
     description:
-      'Explore Sunrise Public School — a modern responsive school demo website showcasing K-12 programs, campus gallery, testimonials, and admissions.',
+      'Explore Sunrise Public School in Muzaffarpur, Bihar — a premier CBSE-affiliated school demo website (Nursery to Class 12) with programs, gallery, and admissions.',
     images: [
       'https://images.unsplash.com/photo-1562774053-701939374585?fit=crop&w=1200&h=630&q=80&fm=jpg',
     ],
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
 const schoolJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'EducationalOrganization',
-  name: 'Sunrise Public School (Demo Project)',
+  name: 'Sunrise Public School, Muzaffarpur (Demo Project)',
   description:
-    'A modern responsive school demo website showcasing K-12 programs, campus gallery, testimonials, and admissions.',
+    'A premier CBSE-affiliated school demo website in Muzaffarpur, Bihar (Nursery to Class 12) showcasing academic programs, campus gallery, testimonials, and admissions.',
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
