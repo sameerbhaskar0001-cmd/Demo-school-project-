@@ -1,0 +1,6 @@
+{
+  "name": "Sunrise Public School",
+  "description": "Official website for Sunrise Public School featuring K-12 academic programs, campus gallery, community testimonials, and admissions inquiries.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
